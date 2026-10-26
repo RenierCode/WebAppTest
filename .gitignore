@@ -1,0 +1,31 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Frontend: reinstall with `npm install`, rebuild with `npm run build`
+frontend/node_modules/
+frontend/dist/
+
+# Runtime data: the database itself is committed (merge its WAL first, see below); its temporary
+# side files and the saved reports are not
+database.db-shm
+database.db-wal
+reports/
+
+# Test databases: rebuild with testing/generate_report_test_db.py / generate_explainer_test_db.py
+database_report_test.db
+database_explainer_test.db
+*.db-shm
+*.db-wal
+# Backup taken before filling the zero readings (local only)
+database.backup-before-fill.db
+
+# Anomaly-test data backup and change record (local only)
+testing/anomaly_test_backup.db
+testing/anomaly_test_manifest.json*
+testing/simulated_alerts.json
+
+# Editors / OS
+.vscode/
+.DS_Store

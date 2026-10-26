@@ -1,0 +1,13 @@
+# Laptop / development install: requirements.txt without the Raspberry Pi hardware packages
+# (pyLoRa, RPi.GPIO, spidev), which don't install on Windows or macOS. Keep the rest in sync with
+# requirements.txt.
+fastapi>=0.111
+uvicorn[standard]>=0.30
+aiosqlite>=0.20
+reportlab>=4.2
+matplotlib>=3.8  # PDF report charts (pH/turbidity/temperature trend graphs)
+pydantic>=2.7
+
+# anomaly_engine.py's ML models -- also used by the testing/ scripts
+numpy>=1.26
+onnxruntime>=1.18

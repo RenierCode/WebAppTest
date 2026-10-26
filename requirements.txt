@@ -1,0 +1,13 @@
+fastapi>=0.111
+uvicorn[standard]>=0.30
+aiosqlite>=0.20
+reportlab>=4.2
+matplotlib>=3.8  # PDF report charts (pH/turbidity/temperature trend graphs)
+pydantic>=2.7
+
+# edge_engine.py — LoRa + ONNX inference
+numpy>=1.26
+onnxruntime>=1.18
+pyLoRa>=0.3.0
+RPi.GPIO>=0.7.1
+spidev>=3.5

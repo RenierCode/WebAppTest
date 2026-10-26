@@ -1,0 +1,19 @@
+{
+  "random_state": 42,
+  "models": {
+    "ph": {
+      "features": "level only",
+      "n_estimators": 300,
+      "max_samples": 256,
+      "score_cutoff": -0.2496969839661507,
+      "onnx_file": "iforest_ph_tuned.onnx"
+    },
+    "turbidity_fnu": {
+      "features": "level only",
+      "n_estimators": 300,
+      "max_samples": 1024,
+      "score_cutoff": -0.26735256864616186,
+      "onnx_file": "iforest_turbidity_fnu_tuned.onnx"
+    }
+  }
+}

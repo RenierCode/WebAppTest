@@ -1,0 +1,18 @@
+[Unit]
+Description=ARGUS - LoRa Ingestion & Three-Model Anomaly Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/argus/app-main
+Environment=WASTEWATER_DB=/home/pi/argus/app-main/database.db
+Environment=WASTEWATER_MODELS_DIR=/home/pi/argus/app-main/models/training/notebook
+ExecStart=/home/pi/argus/app-main/venv/bin/python3 /home/pi/argus/app-main/anomaly_engine.py
+Restart=on-failure
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

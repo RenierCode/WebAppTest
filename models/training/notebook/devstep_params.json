@@ -1,0 +1,27 @@
+{
+  "features": [
+    "dev",
+    "step"
+  ],
+  "baseline": "24h",
+  "min_history": 30,
+  "step_minutes": 2.0,
+  "flag_if": "score < 0",
+  "models": {
+    "ph": {
+      "onnx_file": "iforest_ph_devstep.onnx",
+      "contamination": 0.01,
+      "input": "raw value"
+    },
+    "turbidity_fnu": {
+      "onnx_file": "iforest_turbidity_fnu_devstep.onnx",
+      "contamination": 0.01,
+      "input": "log1p(turbidity)"
+    },
+    "temperature_degC": {
+      "onnx_file": "iforest_temperature_degC_devstep.onnx",
+      "contamination": 0.01,
+      "input": "raw value"
+    }
+  }
+}

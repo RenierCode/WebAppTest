@@ -1,0 +1,23 @@
+[Unit]
+Description=ARGUS - FastAPI Web Server
+After=network.target anomaly_engine.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/argus/app-main
+# Must be the same file anomaly_engine.service writes
+Environment=WASTEWATER_DB=/home/pi/argus/app-main/database.db
+Environment=WASTEWATER_REPORTS=/home/pi/argus/app-main/reports
+# The Reports page's "join the hotspot" QR code: the same name/password as the hotspot (SETUP_RASPI.md §6).
+# Uncomment and fill in; for a hotspot without a password use WASTEWATER_HOTSPOT_OPEN=1 instead.
+Environment=WASTEWATER_HOTSPOT_SSID=WastewaterHub
+Environment=WASTEWATER_HOTSPOT_PASSWORD=choose-a-real-password-here
+ExecStart=/home/pi/argus/app-main/venv/bin/uvicorn server:app --host 0.0.0.0 --port 3000
+Restart=on-failure
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
